@@ -2,18 +2,24 @@ require 'sinatra/base'
 require 'shotgun'
 
 class Battle < Sinatra::Base
+  enable :sessions
 
   get '/' do
-    erb(:form)
+    erb :index
   end
 
-  post '/game' do
-    @name1 = params[:name1]
-    @name2 = params[:name2]
-    erb(:index)
+  get '/play' do
+    @name1 = session[:name1]
+    @name2 = session[:name2]
+    erb :play
   end
 
-  # start the server if ruby file executed directly
+  post '/' do
+    session[:name1] = params[:name1]
+    session[:name2] = params[:name2]
+    redirect '/play'
+  end
+
   run! if app_file == $0
 
 end
