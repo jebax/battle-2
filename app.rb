@@ -11,6 +11,7 @@ class Battle < Sinatra::Base
   get '/play' do
     @name1 = session[:name1]
     @name2 = session[:name2]
+    @name2_hp = 100
     erb :play
   end
 
