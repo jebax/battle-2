@@ -6,11 +6,9 @@
   <h3><%= @name2 %>'s HP: <%= @name2_hp %> / 100</h3>
 </div>
 
- <% if @attacked %>
  <div>
      <h3>You attacked <%= @name2 %></h3>
  </div>
-<% end %>
 
 <div>
   <form action='/play' method='post'>
