@@ -4,7 +4,12 @@ require 'shotgun'
 class Battle < Sinatra::Base
 
   get '/' do
-    'Hello Battle'
+    erb(:form)
+  end
+
+  post '/game' do
+    @name = params[:name]
+    erb(:index)
   end
 
   # start the server if ruby file executed directly
