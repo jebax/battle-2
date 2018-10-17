@@ -23,11 +23,8 @@ class Game
   end
 
   def non_active_player
-    if @turn == @player_1
-      return @player_2
-    else
-      return @player_1
-    end
+    return @player_2 if @turn == @player_1
+    @player_1
   end
 
   def active_player
