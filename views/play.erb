@@ -1,10 +1,4 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="/styles.css" />
-</head>
-
-<div>
-  <h1 class="align_center"><%= @name1 %> vs <%= @name2 %></h1>
-</div>
+<%= erb :game_header %>
 
 <div class="align_center">
   <table>
@@ -20,14 +14,5 @@
     </tbody>
   </table>
 
-  <table>
-    <tbody>
-      <tr>
-        <h3><%= @name2 %></h3>
-      </tr>
-      <tr>
-        <h4>HP: <%= @name2_hp %> / 100</h4>
-      </tr>
-    </tbody>
-  </table>
+  <%= erb :player_2 %>
 </div>
