@@ -7,3 +7,6 @@ h1 {
 .align_center {
   text-align: center
 }
+.align_right {
+  text-align: left
+}

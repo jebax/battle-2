@@ -1,26 +1,25 @@
 require 'sinatra/base'
-require 'shotgun'
+require 'player'
 
 class Battle < Sinatra::Base
 
   configure do
      set :public_folder, File.expand_path('../public', __FILE__)
    end
-  enable :sessions
 
   get '/' do
     erb :index
   end
 
   post '/' do
-    session[:name1] = params[:name1]
-    session[:name2] = params[:name2]
+    $player_1 = Player.new(params[:name1])
+    $player_2 = Player.new(params[:name2])
     redirect '/play'
   end
 
   get '/play' do
-    @name1 = session[:name1]
-    @name2 = session[:name2]
+    @name1 = $player_1.name
+    @name2 = $player_2.name
     @name2_hp = 100
     erb :play
   end
@@ -30,12 +29,12 @@ class Battle < Sinatra::Base
   end
 
   get '/attacked' do
-    @name1 = session[:name1]
-    @name2 = session[:name2]
+    @name1 = $player_1.name
+    @name2 = $player_2.name
     @name2_hp = 100
     erb :attacked
   end
-  
+
   run! if app_file == $0
 
 end
