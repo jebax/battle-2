@@ -8,7 +8,10 @@ h1 {
   text-align: center;
 }
 .align_left {
-  text-align: left;
+  float: left;
+}
+.align_right {
+  float: right;
 }
 .attack_button {
   background-color: #ce2b2b;
@@ -29,4 +32,18 @@ h1 {
   background-color: #a82a2a;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+.left_img {
+  float: left;
+  margin-right: 20px;
+}
+.right_img {
+  float: right;
+  margin-left: 20px;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
 }

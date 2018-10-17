@@ -2,7 +2,7 @@
 
 <div>
   <%= erb :player_1 %>
-  <br>
+  <br><br>
   <form action='/play' method='post' class="align_center">
     <button class="button" id="attack_button" type='submit'>Attack <%= @game.non_active_player.name %>!</button>
   </form>
