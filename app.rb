@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require_relative './lib/player'
+require_relative './lib/game'
+require 'pry'
 
 class Battle < Sinatra::Base
 
@@ -22,11 +24,11 @@ class Battle < Sinatra::Base
   end
 
   post '/play' do
-    $game.attack($game.player_2)
     redirect '/attacked'
   end
 
   get '/attacked' do
+    $game.attack
     @game = $game
     erb :attacked
   end

@@ -12,7 +12,7 @@ describe Game do
   describe "#attack" do
     it 'should be able to attack a player' do
       expect(game_1.player_2).to receive(:receive_hit)
-      game_1.attack(player_2)
+      game_1.attack
     end
   end
 end

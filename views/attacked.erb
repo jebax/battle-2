@@ -1,21 +1,14 @@
 <%= erb :game_header %>
 
 <div class="align_center">
-  <table>
-    <tbody>
-      <tr>
-        <h3><%= @game.player_1.name %></h3>
-      </tr>
-      <tr>
-        <h3><i>You attacked <%= @game.player_2.name %>!</i></h3>
-      </tr>
-      <tr>
-        <form action='/play' method='post'>
-          <button type='submit'>Attack <%= @game.player_2.name %>!</button>
-        </form>
-      </tr>
-    </tbody>
-  </table>
+  <%= erb :player_1 %>
+
+  <form action='/play' method='post'>
+    <button type='submit'>Attack <%= @game.non_active_player.name %>!</button>
+  </form>
 
   <%= erb :player_2 %>
+</div>
+<div>
+  <h3><%= @game.non_active_player.name %> attacked <%= @game.active_player.name %>!</h3>
 </div>
