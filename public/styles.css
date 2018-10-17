@@ -5,14 +5,28 @@ h1 {
   color: #ce2b2b;
 }
 .align_center {
-  text-align: center
+  text-align: center;
 }
-.align_right {
-  text-align: left
+.align_left {
+  text-align: left;
 }
-.player_1 {
-  margin-left: 50px;
+.attack_button {
+  background-color: #ce2b2b;
 }
-.player_2 {
-  margin-right: 50px;
+.button {
+  background-color: #ce2b2b;
+  border: none;
+  font-size: 16px;
+  padding: 32px 16px;
+  font-family: futura;
+  border-radius: 50%;
+  box-shadow: 0 9px #999;
+}
+.button:hover {
+  background-color: #a82a2a;
+}
+.button:active {
+  background-color: #a82a2a;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
