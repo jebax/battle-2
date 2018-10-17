@@ -2,6 +2,10 @@ require 'sinatra/base'
 require 'shotgun'
 
 class Battle < Sinatra::Base
+
+  configure do
+     set :public_folder, File.expand_path('../public', __FILE__)
+   end
   enable :sessions
 
   get '/' do
@@ -31,7 +35,7 @@ class Battle < Sinatra::Base
     @name2_hp = 100
     erb :attacked
   end
-
+  
   run! if app_file == $0
 
 end
