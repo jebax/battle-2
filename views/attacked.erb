@@ -4,14 +4,14 @@
   <table>
     <tbody>
       <tr>
-        <h3><%= @name1 %></h3>
+        <h3><%= @game.player_1.name %></h3>
       </tr>
       <tr>
-        <h3><i>You attacked <%= @name2 %>!</i></h3>
+        <h3><i>You attacked <%= @game.player_2.name %>!</i></h3>
       </tr>
       <tr>
         <form action='/play' method='post'>
-          <button type='submit'>Attack <%= @name2 %>!</button>
+          <button type='submit'>Attack <%= @game.player_2.name %>!</button>
         </form>
       </tr>
     </tbody>
