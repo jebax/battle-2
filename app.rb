@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'player'
+require_relative './lib/player'
 
 class Battle < Sinatra::Base
 
@@ -25,13 +25,14 @@ class Battle < Sinatra::Base
   end
 
   post '/play' do
+    $player_2.receive_hit
     redirect '/attacked'
   end
 
   get '/attacked' do
     @name1 = $player_1.name
     @name2 = $player_2.name
-    @name2_hp = 100
+    @name2_hp = $player_2.hit_points
     erb :attacked
   end
 
