@@ -11,6 +11,7 @@ feature 'hit points' do
 
   scenario 'player 2 is hit and HP is reduced' do
     sign_in_and_play
+    allow(Kernel).to receive(:rand).with(10).and_return 10
     click_button('attack_button')
     expect(page).to have_content("Joel\nHP: 90 / 100")
   end

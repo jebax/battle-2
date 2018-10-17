@@ -19,12 +19,14 @@ describe Player do
     end
 
     it 'will reduce by 10 when hit' do
+      allow(Kernel).to receive(:rand).with(10).and_return(10)
       expect { joel.receive_hit }.to change { joel.hit_points }.by(-10)
     end
   end
 
   describe "#attack" do
     it 'can attack a different player' do
+      allow(Kernel).to receive(:rand).with(10).and_return(10)
       joel.attack(chloe)
       expect(chloe.hit_points).to eq 90
     end
@@ -32,6 +34,7 @@ describe Player do
 
   describe "#dead?" do
     it 'returns true if the player dies' do
+      allow(Kernel).to receive(:rand).with(10).and_return(10)
       10.times { joel.attack(chloe) }
       expect(chloe.dead?).to eq true
     end

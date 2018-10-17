@@ -13,7 +13,7 @@ class Player
   end
 
   def receive_hit
-    @hit_points -= 10
+    @hit_points -= Kernel.rand(10)
   end
 
   def dead?
