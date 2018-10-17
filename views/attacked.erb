@@ -1,21 +1,38 @@
+<html>
 <head>
   <link rel="stylesheet" type="text/css" href="/styles.css" />
 </head>
-<div>
-  <h1><%= @name1 %> vs <%= @name2 %></h1>
-</div>
 
 <div>
-  <h3><%= @name2 %>'s HP: <%= @name2_hp %> / 100</h3>
+  <h1 class="align_center"><%= @name1 %> vs <%= @name2 %></h1>
 </div>
 
-<div>
-  <h3><i>You attacked <%= @name2 %>!</i></h3>
-</div>
+<div class="align_center">
+  <table>
+    <tbody>
+      <tr>
+        <h3><%= @name1 %></h3>
+      </tr>
+      <tr>
+        <h3><i>You attacked <%= @name2 %>!</i></h3>
+      </tr>
+      <tr>
+        <form action='/play' method='post'>
+          <button type='submit'>Attack <%= @name2 %>!</button>
+        </form>
+      </tr>
+    </tbody>
+  </table>
 
-<div>
-  <form action='/play' method='post'>
-    <button type='submit'>Attack <%= @name2 %>!</button>
-  </form>
+  <table>
+    <tbody>
+      <tr>
+        <h3><%= @name2 %></h3>
+      </tr>
+      <tr>
+        <h4>HP: <%= @name2_hp %> / 100</h4>
+      </tr>
+    </tbody>
+  </table>
 </div>
 </html>
