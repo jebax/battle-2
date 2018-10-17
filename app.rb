@@ -6,33 +6,41 @@ require 'pry'
 class Battle < Sinatra::Base
 
   configure do
-     set :public_folder, File.expand_path('../public', __FILE__)
-   end
+    set :public_folder, File.expand_path('../public', __FILE__)
+  end
+
+  before do
+    @game = Game.current_game
+  end
 
   get '/' do
     erb :index
   end
 
   post '/' do
-    $game = Game.new(Player.new(params[:name1]), Player.new(params[:name2]))
+    player_1 = Player.new(params[:name1])
+    player_2 = Player.new(params[:name2])
+    Game.store_game(Game.new(player_1, player_2))
     redirect '/play'
   end
 
   get '/play' do
-    @game = $game
     erb :play
   end
 
   post '/play' do
+    @game.attack
+    redirect '/game_over' if @game.finished?
     redirect '/attacked'
   end
 
   get '/attacked' do
-    $game.attack
-    @game = $game
     erb :attacked
   end
 
-  run! if app_file == $0
+  get '/game_over' do
+    erb :game_over
+  end
 
+  run! if app_file == $0
 end

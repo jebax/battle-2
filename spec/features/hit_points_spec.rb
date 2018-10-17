@@ -11,7 +11,7 @@ feature 'hit points' do
 
   scenario 'player 2 is hit and HP is reduced' do
     sign_in_and_play
-    click_button('Attack Joel!')
+    click_button('attack_button')
     expect(page).to have_content("Joel\nHP: 90 / 100")
   end
 end

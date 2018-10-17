@@ -2,13 +2,14 @@
 
 <div class="align_center">
   <%= erb :player_1 %>
-
+  <br><br>
   <form action='/play' method='post'>
-    <button type='submit'>Attack <%= @game.non_active_player.name %>!</button>
+    <button id="attack_button" type='submit'>Attack <%= @game.non_active_player.name %>!</button>
   </form>
 
   <%= erb :player_2 %>
 </div>
-<div>
-  <h3><%= @game.non_active_player.name %> attacked <%= @game.active_player.name %>!</h3>
+<br><br><br><br>
+<div class="align_center">
+  <h3><i><%= @game.non_active_player.name %> attacked <%= @game.active_player.name %>!</i></h3>
 </div>

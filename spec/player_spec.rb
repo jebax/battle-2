@@ -29,4 +29,11 @@ describe Player do
       expect(chloe.hit_points).to eq 90
     end
   end
+
+  describe "#dead?" do
+    it 'returns true if the player dies' do
+      10.times { joel.attack(chloe) }
+      expect(chloe.dead?).to eq true
+    end
+  end
 end
